@@ -25,6 +25,7 @@ public class ProductController {
     public ResponseEntity GetAllProducts(){
         var allProducts = repository.findAll();
         return ResponseEntity.ok(allProducts);
+
     }
     
     @PostMapping
