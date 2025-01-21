@@ -30,7 +30,7 @@ public class ProductController {
     @PostMapping
     public ResponseEntity registerProduct(@RequestBody @Valid RequestProduct data){
         Product product =new Product(data);
-        System.out.println(data);
+        repository.save((product));
         return ResponseEntity.ok().body(null);
     }
 }

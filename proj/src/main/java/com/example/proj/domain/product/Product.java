@@ -27,4 +27,5 @@ public class Product {
         this.price_in_cents=requestProduct.price_in_cents();
 
     }
+    // public Product (String)
 }
