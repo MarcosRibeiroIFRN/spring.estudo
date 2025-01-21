@@ -5,13 +5,20 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Table(name="product")
 @Entity(name="product")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
-@Data
 public class Product {
    
     @Id
@@ -20,7 +27,7 @@ public class Product {
 
     private String name;
 
-    private Number price_in_cents;
+    private Integer price_in_cents;
 
     public Product(RequestProduct requestProduct){
         this.name=requestProduct.name();

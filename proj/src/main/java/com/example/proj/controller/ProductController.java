@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,17 +22,22 @@ public class ProductController {
     @Autowired
     private ProductRepository repository;
 
+    @SuppressWarnings("rawtypes")
     @GetMapping
-    public ResponseEntity GetAllProducts(){
+    public ResponseEntity getAllProducts(){
         var allProducts = repository.findAll();
         return ResponseEntity.ok(allProducts);
-
     }
     
+    @SuppressWarnings("rawtypes")
     @PostMapping
-    public ResponseEntity registerProduct(@RequestBody @Valid RequestProduct data){
+    public ResponseEntity RegisterProduct(@RequestBody @Valid RequestProduct data){
         Product product =new Product(data);
         repository.save((product));
         return ResponseEntity.ok().body(null);
     }
+    // @PutMapping
+    // public ResponseEntity UpdateProduct(@RequestBody){
+
+    // }
 }
